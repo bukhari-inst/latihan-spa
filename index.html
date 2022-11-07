@@ -76,5 +76,22 @@
         $('#content').load('pages/tentang.html');
       }
     </script>
+
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function () {
+          navigator.serviceWorker
+            .register('sw2.js')
+            .then(function () {
+              console.log('SW berhasil diregister');
+            })
+            .catch(function () {
+              console.log('SW gagal dimuat');
+            });
+        });
+      } else {
+        console.log('SW tidak disupport');
+      }
+    </script>
   </body>
 </html>
